@@ -1,7 +1,9 @@
 <template>
   <div>
     <b-navbar type="dark" variant="primary">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+      <b-navbar-brand href="#">
+        NavBar
+      </b-navbar-brand>
     </b-navbar>
     <nuxt />
   </div>
