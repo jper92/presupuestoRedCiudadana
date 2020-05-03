@@ -1,67 +1,44 @@
 <template>
   <div>
-    <b-navbar type="dark" variant="primary">
-      <b-navbar-brand href="#">
-        NavBar
-      </b-navbar-brand>
+    <b-navbar toggleable="lg" type="dark" variant="primary">
+      <b-navbar-toggle target="nav-collapse" />
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="mailto:info@redciudadana.org">
+            <font-awesome-icon :icon="['fas', 'envelope']" class="mr-1" />info@redciudadana.org
+          </b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto mr-3">
+          <b-nav-item href="#" class="circle-item mx-1">
+            <circle-icon>
+              <font-awesome-icon :icon="['fab', 'facebook-f']" />
+            </circle-icon>
+          </b-nav-item>
+          <b-nav-item href="#" class="circle-item mx-1">
+            <circle-icon>
+              <font-awesome-icon :icon="['fab', 'twitter']" />
+            </circle-icon>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
     </b-navbar>
     <nuxt />
   </div>
 </template>
 
-<style lang="scss">
-$theme-colors: (
-  "primary": #653FE0,
-);
+<script lang="ts">
+import Vue from 'vue'
+import CircleIcon from '~/components/icons/CircleIcon.vue'
 
-@import 'bootstrap/scss/bootstrap.scss';
-@import 'bootstrap-vue/src/index.scss';
+export default Vue.extend({
+  components: {
+    CircleIcon
+  }
+})
+</script>
 
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+<style scoped>
+.circle-item {
+  width: 30px;
 }
 </style>

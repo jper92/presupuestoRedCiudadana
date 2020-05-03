@@ -23,7 +23,9 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/theme.scss'
   ],
+
   /*
   ** Plugins to load before mounting the App
   */
@@ -44,7 +46,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'nuxt-fontawesome'
   ],
   /*
   ** Axios module configuration
@@ -54,9 +57,25 @@ export default {
   },
 
   bootstrapVue: {
-    bootstrapCSS: false, // Or `css: false`
-    bootstrapVueCSS: false // Or `bvCSS: false`
+    icons: true,
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
   },
+
+  fontawesome: {
+    imports: [
+      {
+        // import whole set
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons',
+        icons: ['fab']
+      }
+    ]
+  },
+
   /*
   ** Build configuration
   */
@@ -65,7 +84,7 @@ export default {
     ** You can extend webpack config here
     */
     // eslint-disable-next-line
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
