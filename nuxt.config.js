@@ -73,6 +73,11 @@ export default {
       }
     }
   },
+
+  router: {
+    base: '/presupuestoRedCiudadana'
+  },
+
   /*
   ** Build configuration
   */
