@@ -1,3 +1,4 @@
+import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'universal',
@@ -5,10 +6,11 @@ export default {
   ** Headers of the page
   */
   head: {
+    titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -23,9 +25,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/theme.scss'
   ],
-
   /*
   ** Plugins to load before mounting the App
   */
@@ -35,19 +35,18 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxt/typescript-build'
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-    'nuxt-fontawesome'
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration
@@ -55,27 +54,25 @@ export default {
   */
   axios: {
   },
-
-  bootstrapVue: {
-    icons: true,
-    bootstrapCSS: false,
-    bootstrapVueCSS: false
-  },
-
-  fontawesome: {
-    imports: [
-      {
-        // import whole set
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
+  /*
+  ** vuetify module configuration
+  ** https://github.com/nuxt-community/vuetify-module
+  */
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      options: {
+        customProperties: true
       },
-      {
-        set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab']
+      dark: false,
+      themes: {
+        light: {
+          primary: '#653fdf',
+          'background-gray': '#58595B'
+        }
       }
-    ]
+    }
   },
-
   /*
   ** Build configuration
   */
@@ -83,8 +80,11 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    // eslint-disable-next-line
-    extend(config, ctx) {
+    extend (config, ctx) {
     }
+  },
+
+  generate: {
+    dir: 'docs'
   }
 }

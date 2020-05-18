@@ -1,73 +1,66 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        test
-      </h1>
-      <h2 class="subtitle">
-        My stunning Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <v-row>
+    <v-col cols="12" class="my-n3">
+      <carousel />
+    </v-col>
+    <v-col cols="12" class="my-n3 summary-container">
+      <v-container>
+        <v-row>
+          <v-col cols="12">
+            <div class="d-flex flex-column rounded-border text-center">
+              <div class="primary title white--text pa-3">
+                Presupuesto general vigente de la República de Guatemala
+              </div>
+              <div class="white display-2 primary--text pa-3">
+                Q10000.00
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" md="6">
+            <div class="d-flex flex-column rounded-border text-center white pa-3">
+              <div class="title pb-3">
+                Gasto devengado
+              </div>
+              <div class="headline primary--text">
+                Q123123
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" md="6">
+            <div class="d-flex flex-column rounded-border text-center white pa-3">
+              <div class="title pb-3">
+                Porcentaje de ejecución
+              </div>
+              <div class="headline primary--text">
+                10%
+              </div>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-col>
+  </v-row>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
+<script>
+import Carousel from '~/components/Carousel.vue'
 
-export default Vue.extend({
+export default {
+  name: 'Overview',
+
   components: {
-    Logo
+    Carousel
   }
-})
+}
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style scoped>
+  .summary-container {
+    background-color: #EDEDEE;
+  }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+  .rounded-border {
+    border-radius: 5px;
+    overflow: hidden;
+  }
 </style>

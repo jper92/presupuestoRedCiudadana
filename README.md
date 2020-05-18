@@ -1,6 +1,6 @@
-# test
+# fresh-app
 
-> My stunning Nuxt.js project
+> My geometric Nuxt.js project
 
 ## Build Setup
 
